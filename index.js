@@ -1,5 +1,27 @@
 var express = require('express');
 var app = express();
+var users = require('./users/index')
+
+app.use('/users',users)
+
+const PSQL_PORT='127.0.0.1:5432'
+
+
+const { Client } = require('pg')
+const client = new Client({
+  user: 'postgres',
+  host: '34.70.240.206',
+  database: 'postgres',
+  password: 'postgres',
+  port: 5432,
+})
+
+
+client.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected! to datbase!!!");
+});
+
 
 // This responds with "Hello World" on the homepage
 app.get('/', function (req, res) {
@@ -13,23 +35,6 @@ app.post('/', function (req, res) {
    res.send('Hello POST');
 })
 
-// This responds a DELETE request for the /del_user page.
-app.delete('/del_user', function (req, res) {
-   console.log("Got a DELETE request for /del_user");
-   res.send('Hello DELETE');
-})
-
-// This responds a GET request for the /list_user page.
-app.get('/list_user', function (req, res) {
-   console.log("Got a GET request for /list_user");
-   res.send('Page Listing');
-})
-
-// This responds a GET request for abcd, abxcd, ab123cd, and so on
-app.get('/ab*cd', function(req, res) {   
-   console.log("Got a GET request for /ab*cd");
-   res.send('Page Pattern Match');
-})
 
 var server = app.listen(8081,'127.0.0.1', function () {
    var host = server.address().address

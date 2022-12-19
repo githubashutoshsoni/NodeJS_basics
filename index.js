@@ -6,6 +6,11 @@ const db = require("./data/db.js");
 app.use('/users',users)
 
 
+// const knexConfig = require('./knexfile');
+// const discolse = knexConfig['staging']
+
+// //initialize knex
+// const knex = require('knex')(knexConfig['staging'])
 
 
 
@@ -17,7 +22,7 @@ var corsOptions = {
  
  // parse requests of content-type - application/json
  app.use(express.json());
- console.log("mynode env is this"+ process.env.NODE_ENV)
+
  // parse requests of content-type - application/x-www-form-urlencoded
  app.use(express.urlencoded({ extended: true }));
 

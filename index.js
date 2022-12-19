@@ -6,6 +6,9 @@ const db = require("./data/db.js");
 app.use('/users',users)
 
 
+
+
+
 var corsOptions = {
    origin: "http://127.0.0.1:8081"
  };

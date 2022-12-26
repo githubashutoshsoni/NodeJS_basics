@@ -15,7 +15,7 @@ require("dotenv").config();
 //  });
 
 
-
+let knex = require('knex')
 
 
 const knexConfig = require('../knexfile');
@@ -23,6 +23,6 @@ const discolse = knexConfig['staging']
 console.log('process.env.NODE_ENV ' + process.env.NODE_ENV)
 //initialize knex 
 // todo help see how to fix the issue with 
-module.exports = require('knex')(knexConfig['staging'])
+module.exports = knex(knexConfig['staging'])
 
 

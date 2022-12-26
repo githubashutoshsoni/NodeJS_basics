@@ -2,8 +2,32 @@ var express = require('express');
 var app = express();
 var users = require('./users/index')
 const cors = require("cors");
-const db = require("./data/db.js");
-app.use('/users',users)
+const dbConfig = require("./data/db.js");
+// app.use('/users',users)
+
+
+const bookshelf = require('bookshelf')(dbConfig)
+
+const User = bookshelf.model('User',{ 
+tableName:'users'
+})
+
+const Post = bookshelf.model('Post',{
+   tableName:'post'
+})
+
+app.get('/posts', async(req,res)=>{
+   var posts = await new Post().fetchAll();
+   res.json(posts);
+   // res.json()
+})
+
+app.get("/users", async (req, res) => {
+   var users = await new User().fetchAll();
+   res.json(users);
+ });
+ 
+ 
 
 
 // const knexConfig = require('./knexfile');
@@ -27,7 +51,7 @@ var corsOptions = {
  app.use(express.urlencoded({ extended: true }));
 
  app.get("/todo", async (req, res) => {
-   const todos = await db("todo"); // making a query to get all todos
+   const todos = await bookshelf("todo"); // making a query to get all todos
    res.json({ todos });
  });
  

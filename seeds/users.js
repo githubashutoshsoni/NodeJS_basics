@@ -6,8 +6,8 @@ exports.seed = async function(knex) {
   // Deletes ALL existing entries
   await knex('users').del()
   await knex('users').insert([
-    {id: 1, name: 'rowValue1',address:'damo street,mixture,europe',dob:'16-01-1997' },
-    {id: 2, colName: 'rowValue2'},
-    {id: 3, colName: 'rowValue3'}
+    { name: 'ramesh',address:'damo street,mixture,europe',dob:'1997-06-16' },
+    { name: 'suresh',address:'2damo street,mixture,europe',dob:'1998-04-17' },
+    {name: 'jeyendra',address:'3damo street,mixture,europe',dob:'1999-02-18' },
   ]);
 };

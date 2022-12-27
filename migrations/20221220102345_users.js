@@ -8,15 +8,16 @@ exports.up = function(knex) {
         table.string('name');
         table.string('address');
         table.date('dob');
-        table.integer('user_id');
         table.timestamps();
       }).then(result=>console.log(result));
 };
+
+
 
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-//  return knex.schema.dropTableIfExists('users').then(result=> console.log(result));
+ return knex.schema.dropTableIfExists('users').then(result=> console.log(result));
 };

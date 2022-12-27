@@ -8,11 +8,11 @@ exports.up = function(knex) {
   table.string('number');
   table.string('cvv');
   table.date('date').defaultTo(knex.fn.now());
-  table.integer('user_id');
+  table.integer('user_id').references('id').inTable('users').notNullable();
   table.timestamps();
 }).then(result=>console.log(result));
 };
-
+// t.bigInteger('skill_id').references('id').inTable('skills').notNullable();
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }

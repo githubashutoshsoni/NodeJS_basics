@@ -1,32 +1,21 @@
 var express = require('express');
 var app = express();
-var users = require('./users/index')
+var userIndex = require('./model/users')
 const cors = require("cors");
 const dbConfig = require("./data/db.js");
-// app.use('/users',users)
+var credit_cards = require('./model/creditcard')
+
+// app.use('/users',userIndex.router)
+// app.use('/credits',credit_cards)
 
 
-const bookshelf = require('bookshelf')(dbConfig)
+//Routes
+let appRouter = require("./routes/v1");
+app.use('/v1/users', appRouter.userRoute);
+app.use('/v1/credits', appRouter.creditRoute);
 
-const User = bookshelf.model('User',{ 
-tableName:'users'
-})
 
-const Post = bookshelf.model('Post',{
-   tableName:'post'
-})
 
-app.get('/posts', async(req,res)=>{
-   var posts = await new Post().fetchAll();
-   res.json(posts);
-   // res.json()
-})
-
-app.get("/users", async (req, res) => {
-   var users = await new User().fetchAll();
-   res.json(users);
- });
- 
  
 
 

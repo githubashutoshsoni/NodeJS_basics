@@ -11,7 +11,7 @@ router.use((req,res,next)=>{
 
 
 router.get("/", async (req, res) => {
-    var users = await new User().fetcrshAll();
+    var users = await new User().fetchAll();
     res.json(users);
   });
 

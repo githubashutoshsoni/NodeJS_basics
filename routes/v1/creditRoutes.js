@@ -5,7 +5,11 @@ const CreditCard  = require('../../model/creditcard')
  
 router.get('/',async(req,res)=>{
     
-    let creditCards =  await  CreditCard.where({id:1}).fetch({withRelated: ['users']});
+    // let creditCards = await new CreditCard().fetchAll(); 
+    
+    let creditCards = await  CreditCard.where({id:1}).fetch({withRelated: ['users']});
+
+
     
     res.json(creditCards.toJSON());
  

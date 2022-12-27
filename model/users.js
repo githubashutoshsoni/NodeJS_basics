@@ -2,7 +2,8 @@ let express = require('express')
 
 let dbConfig = require('../data/db.js');
 const bookshelf = require('bookshelf')(dbConfig)
-const CreditCard = require('./creditcard')
+
+// bookshelf.plugin('registry')
 
 
 
@@ -19,5 +20,6 @@ const User = bookshelf.Model.extend({
 
 // module.exports = {router,User}
 
-module.exports = User
+module.exports = bookshelf.model('User', User);
+
 

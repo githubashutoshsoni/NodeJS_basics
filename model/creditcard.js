@@ -3,6 +3,7 @@ const dbConfig = require('../data/db');
 // const router = express.Router();
 const bookshelf = require('bookshelf')(dbConfig)
 const User = require('./users')
+// bookshelf.plugin('registry')
 // const User = userIndex.User
 
 // router.use((req,res,next)=>{
@@ -14,7 +15,7 @@ const User = require('./users')
 const CreditCard = bookshelf.Model.extend({
     tableName:'credit_card',
     users(){
-        return this.belongsTo(User)
+        return this.belongsTo('User')
     }
 })
 
@@ -23,5 +24,6 @@ const CreditCard = bookshelf.Model.extend({
   
 
 // module.exports = router
-module.exports = CreditCard
+module.exports = bookshelf.model('CreditCard',CreditCard);
+
 

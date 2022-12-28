@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "SET NODE_ENV=development & nodemon index.js ",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "migrate": "SET NODE_ENV=staging & knex migrate:latest --knexfile knexfile.js"
+    "migrate": "SET NODE_ENV=development & knex migrate:latest --knexfile knexfile.js"
   },
   "repository": {
     "type": "git",

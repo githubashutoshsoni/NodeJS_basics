@@ -6,9 +6,9 @@ const bookshelf = require('bookshelf')(dbConfig)
 const Book = bookshelf.model('Book', {
   
   tableName: 'books',
-    summary() {
-      return this.hasOne('Summary')
-    }
+    // summary() {
+    //   return this.hasMany('Summary')
+    // }
   })
 
   module.exports = Book

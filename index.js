@@ -13,7 +13,7 @@ var credit_cards = require('./model/creditcard')
 let appRouter = require("./routes/v1");
 app.use('/v1/users', appRouter.userRoute);
 app.use('/v1/credits', appRouter.creditRoute);
-
+app.use('/v1/summary',appRouter.summaryRoute);
 
 
  

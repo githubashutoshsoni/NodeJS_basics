@@ -1,4 +1,4 @@
 const userRoute = require('./userRouter')
 const creditRoute = require('./creditRoutes')
-
-module.exports = { userRoute, creditRoute}
+const summaryRoute = require('./summaryRoutes')
+module.exports = { userRoute, creditRoute,summaryRoute}

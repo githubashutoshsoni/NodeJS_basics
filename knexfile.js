@@ -6,6 +6,7 @@
 module.exports = {
 
   development: {
+    debug:true,
     client: 'postgresql',
     connection: {
       host :'127.0.0.1',
@@ -19,9 +20,10 @@ module.exports = {
     client: 'postgresql',
     connection: {
       host :'127.0.0.1',
+      port:5433,
       database: 'postgres',
       user:     'postgres',
-      password: 'postgres'
+      password: 'soni'
     },
     pool: {
       min: 2,
@@ -36,6 +38,7 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'my_db',
+      port:5433,
       user:     'username',
       password: 'password'
     },

@@ -9,7 +9,7 @@ const bookshelf = require('bookshelf')(dbConfig)
 
 
 
-const User = bookshelf.Model.extend({ 
+const User = bookshelf.model('User',{ 
   tableName:'users',
   credit_cards(){
     return this.hasOne('CreditCard')
@@ -20,6 +20,6 @@ const User = bookshelf.Model.extend({
 
 // module.exports = {router,User}
 
-module.exports = bookshelf.model('User', User);
+module.exports = User
 
 

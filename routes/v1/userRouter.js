@@ -11,7 +11,9 @@ router.use((req,res,next)=>{
 
 
 router.get("/", async (req, res) => {
-    var users = await new User().fetchAll();
+    var users = await new User().where({id:2}).fetch({
+      withRelated:["credit_cards"]
+    })
     res.json(users);
   });
 

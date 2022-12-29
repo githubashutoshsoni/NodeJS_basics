@@ -1,25 +1,16 @@
-let express = require('express')
+let express = require("express");
 
-let dbConfig = require('../data/db.js');
-const bookshelf = require('bookshelf')(dbConfig)
+const { bookshelf } = require("../data/bookshelf");
 
 // bookshelf.plugin('registry')
 
-
-
-
-
-const User = bookshelf.model('User',{ 
-  tableName:'users',
-  credit_cards(){
-    return this.hasOne('CreditCard')
-  }
-  })
-  
-  
+const User = bookshelf.model("User", {
+  tableName: "users",
+  credit_cards() {
+    return this.hasMany("CreditCard","user_id");
+  },
+});
 
 // module.exports = {router,User}
 
-module.exports = User
-
-
+module.exports = User;

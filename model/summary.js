@@ -1,10 +1,9 @@
-const dbConfig = require("../data/db");
-const bookshelf = require("bookshelf")(dbConfig);
+const { bookshelf } = require("../data/bookshelf");
 require("./book");
 
 const Summary = bookshelf.model("Summary", {
   tableName: "summaries",
-  books() {
+  book() {
     return this.belongsTo("Book", "book_id");
   },
 });

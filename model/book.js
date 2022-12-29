@@ -1,14 +1,15 @@
-const dbConfig = require('../data/db');
-const bookshelf = require('bookshelf')(dbConfig)
- require('./summary')
+const { bookshelf } = require("../data/bookshelf");
+
 
 
 const Book = bookshelf.model('Book', {
   
   tableName: 'books',
-    // summary() {
-    //   return this.hasMany('Summary')
-    // }
+  hasTimestamps: true,
+  autoIncrement: true,
+    summary() {
+      return this.hasMany('Summary')
+    }
   })
 
   module.exports = Book

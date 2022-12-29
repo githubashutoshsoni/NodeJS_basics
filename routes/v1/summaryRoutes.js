@@ -5,8 +5,8 @@ const Summary  = require('../../model/summary')
 
 router.get('/',async(req,res)=>{
 
-    let books = await Summary.where({id:1}).fetch({require: false, withRelated: ['books']})
-    .then(function(){
+     await Summary.where({id:2}).fetch({require: false, withRelated: ['book']})
+    .then(function(books){
 
         res.json(books.toJSON());
 

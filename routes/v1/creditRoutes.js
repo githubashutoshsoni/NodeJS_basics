@@ -1,18 +1,24 @@
-const express = require('express')
-const router=express.Router()
-const CreditCard  = require('../../model/creditcard')
+const express = require("express");
+const router = express.Router();
+const CreditCard = require("../../model/creditcard");
 
- 
-router.get('/',async(req,res)=>{
-    
-    // let creditCards = await new CreditCard().fetchAll(); 
-    
-    let creditCards = await  CreditCard.where({id:1}).fetch({withRelated: ['users']});
+router.get("/", async (req, res) => {
+  // let creditCards = await new CreditCard().fetchAll();
+
+  try {
 
 
-    
+
+    let creditCards = await CreditCard.where({ user_id: 2 }).fetch({
+      withRelated: ["users"],
+    });
+  
+  
+  
+  
     res.json(creditCards.toJSON());
- 
- 
- });
- module.exports = router
+  } catch (error) {
+    res.send(error)
+  }
+});
+module.exports = router;

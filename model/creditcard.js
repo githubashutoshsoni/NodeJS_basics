@@ -1,6 +1,4 @@
-const dbConfig = require('../data/db');
-
-const bookshelf = require('bookshelf')(dbConfig)
+const { bookshelf } = require("../data/bookshelf");
 const User = require('./users')
 
 

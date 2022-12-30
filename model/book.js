@@ -9,6 +9,9 @@ const Book = bookshelf.model('Book', {
   autoIncrement: true,
     summary() {
       return this.hasMany('Summary')
+    },
+    authors(){
+      return this.hasMany('Author')
     }
   })
 
